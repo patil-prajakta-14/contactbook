@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Book</title>
+
+    <style>
+        body{
+            background-color: gray;
+        }
+        .container{
+            background-color: white;
+            height: 200px;
+            width: 500px;
+            position: relative;
+            top: 100px;
+            left: 500px;
+            border-radius: 20px;
+            border: double 4px black;
+        }
+        .text{
+            text-align: center;
+            font-size: 40px;
+            padding: 5px;
+        }
+        .input-text{
+            margin-left: 120px;
+            margin-right: 10px;
+            padding: 8px;
+            border: 1px solid black;
+        }
+        .btn{
+            padding: 8px;
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+    <h1 class="text">Contact Book</h1>
+    <input type="text" id="search" placeholder="search" class="input-text">
+    <button type="button" onclick="search()" class="btn">Search</button>
+    <p id="result"></p>
+    </div>
+
+    <script>
+        const contacts={
+            prajakta: "9022180036",
+            archana: "4687658377",
+            kiran: "8684673468",
+            ravi: "7463234889",
+        }
+
+        function search(){
+            const searchInput= document.getElementById("search");
+            const query= searchInput.value.toLowerCase();
+
+            const mobile= contacts[query]
+            const result= document.getElementById("result");
+
+            if(mobile){
+                result.innerText= `Mobile number of ${query} is ${mobile}`;
+            }
+            else{
+                result.innerText= `Contact not found`;
+            }
+        }
+
+    </script>
+</body>
+</html>
